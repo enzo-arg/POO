@@ -1,0 +1,57 @@
+carreras=[]
+seguir = True
+
+while seguir:
+    print(carreras)
+    print("++++++++++++++MENU+++++++++++++")
+    print(" 1. Crear Carrera")
+    print(" 2. Leer carrera")
+    print(" 3. Actualizar carrera")
+    print(" 4. borrar carrera")
+    print(" 5. Salir")
+    oppcion = input("Ingrese su opcion: ")
+    print("--------------------------------")
+    if oppcion.isnumeric():
+        print(oppcion)
+        opcion = int(oppcion)
+        if opcion == 1:
+            print("Ingresar carrera")
+            nombre = input("Nombre: ")
+            dicCarrea={}
+            dicCarrea["carrera"] = nombre
+            carreras.append(dicCarrea)
+        
+        if opcion == 2:
+            print("Leyendo las carreras")
+            for carrera in carreras:
+                print(" Nombre : " + carrera["carrera"])
+            
+        if opcion == 3:
+            carRemplazar=input("carrera a sustituir: ")
+            newCarrera=input("Ingrese nueva carrea: ")
+            dicCarrea={}
+            dicCarrea["carrera"] = newCarrera
+            indice = 0
+            for carrera in carreras:
+                if carrera["carrera"] == carRemplazar:
+                    carreras[indice] = dicCarrea
+                    break
+                else :
+                    indice = indice + 1
+        
+        if opcion == 4:
+            print("Borrar Carrera")
+            carreraBorrar = input("Que carrera sea Borrar:  ")
+            indice = 0
+            for carrera in carreras:
+                if carrera["carrera"] == carreraBorrar:
+                    carreras.remove(carrera)
+                    break
+                else :
+                    indice = indice + 1
+        if opcion == 5:
+            print("Hasta la Proxima")
+            seguir = False
+    else :
+        print("Por favor ingrese un numero del menu")
+    print("--------------------------------")
